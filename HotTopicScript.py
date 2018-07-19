@@ -38,14 +38,13 @@ year = profile.credit_card_exp_year
 card_cvv = profile.credit_card_cvv
 card_name = profile.credi_card_owner_name
 keyword1 = profile.keyword_one
-keyword2 = profile.keyword_two
 
 # LINK SCRAPPER #
 for table_row in base_soup.findAll("div", {"class":"search-result-content four-tiles"}):
     for table_cell in table_row.findAll("div", {"class":"product-tile"}):
         for link in table_cell.findAll("a", {"class":"thumb-link"}):
             links = link.get('href')
-            if keyword1 and keyword2 in links:
+            if keyword1 in links:
                 print(links)
                 product = links
                 # GETS THE PRODUCT LINK & BYPASSES OVERLAY #
